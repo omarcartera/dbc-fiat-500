@@ -34,18 +34,25 @@ NS_ :
 BU_: DIAG_TOOL FIAT_500L
 
 BO_ 2148573190 veh_status_09: 8 FIAT_500L
- SG_ brake_pedal : 8|9@0+ (1,0) [0|511] "" DIAG_TOOL
+ SG_ brake_pedal : 9|10@0+ (1,0) [0|511] "" DIAG_TOOL
 
 BO_ 2150670338 veh_status_08: 8 FIAT_500L
- SG_ steering_angle : 30|14@1+ (1,-720) [0|0] "" DIAG_TOOL
+ SG_ steering_angle : 25|14@0+ (-0.0876,631.6) [-500|500] "deg" DIAG_TOOL
 
 
 BO_ 2351472640 datetime: 6 FIAT_500L
- SG_ hour : 0|8@1+ (1,0) [0|23] "" DIAG_TOOL
- SG_ minute : 8|8@1+ (1,0) [0|59] "" DIAG_TOOL
- SG_ day : 16|8@1+ (1,0) [1|31] "" DIAG_TOOL
- SG_ month : 24|8@1+ (1,0) [1|12] "" DIAG_TOOL
- SG_ year : 32|16@1+ (1,0) [0|99] "" DIAG_TOOL
+SG_ Hours_Ten : 4|4@1+ (1,0) [0|2] "" DIAG_TOOL
+ SG_ Hours_One : 0|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ Minutes_Ten : 12|4@1+ (1,0) [0|5] "" DIAG_TOOL
+ SG_ Minutes_One : 8|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ Day_Ten : 20|4@1+ (1,0) [0|3] "" DIAG_TOOL
+ SG_ Day_One : 16|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ Month_Ten : 28|4@1+ (1,0) [0|1] "" DIAG_TOOL
+ SG_ Month_One : 24|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ YearHi_Ten : 36|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ YearHi_One : 32|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ YearLo_Ten : 44|4@1+ (1,0) [0|9] "" DIAG_TOOL
+ SG_ YearLo_One : 40|4@1+ (1,0) [0|9] "" DIAG_TOOL
 
 BO_ 2182127622 veh_status_03: 8 FIAT_500L
  SG_ speed : 40|16@1+ (0.0078125,0) [0|511.99] "km/h" DIAG_TOOL
@@ -59,9 +66,11 @@ BO_ 2316869632 veh_status_01: 8 FIAT_500L
  SG_ windshield_heater : 52|1@1+ (1,0) [0|1] "enum" DIAG_TOOL
  SG_ city_drive : 9|1@1+ (1,0) [0|1] "enum" DIAG_TOOL
  SG_ ac_compressor : 10|1@1+ (1,0) [0|1] "enum" DIAG_TOOL
- SG_ ac_compressor_inv : 22|2@1+ (1,0) [0|3] "enum" DIAG_TOOL
  SG_ ignition_status : 43|2@1+ (1,0) [0|3] "" DIAG_TOOL
  SG_ parking_brake : 53|1@1+ (1,0) [0|1] "" DIAG_TOOL
+
+BO_ 2316869633 veh_status_10: 8 FIAT_500L
+ SG_ ac_compressor_inv : 22|2@1+ (1,0) [0|3] "enum" DIAG_TOOL
 
 BO_ 2316869638 veh_status_05: 8 FIAT_500L
  SG_ asr : 23|1@1+ (1,0) [0|1] "enum" DIAG_TOOL
@@ -85,6 +94,7 @@ BO_ 2249760769 engine_01: 8 FIAT_500L
 
 BO_ 2250809345 engine_04: 8 FIAT_500L
  SG_ gas_pedal : 32|8@1+ (1,0) [0|255] "" DIAG_TOOL
+ SG_ clutch_pressed : 45|1@1+ (1,0) [0|1] "enum" DIAG_TOOL
 
 BO_ 2564485392 engine_03: 6 FIAT_500L
  SG_ fuel_flow : 32|16@1+ (0.001953125,0) [0|127] "L/h" DIAG_TOOL
@@ -102,11 +112,12 @@ BA_ "GenMsgCycleTime" BO_ 2316935169 100;
 BA_ "GenMsgCycleTime" BO_ 2351734784 2000;
 BA_ "GenMsgCycleTime" BO_ 2249760769 10;
 BA_ "GenMsgCycleTime" BO_ 2564485392 100;
+BA_ "GenMsgCycleTime" BO_ 2316869633 200;
 
 VAL_ 2316869632 lights_on_1 0 "OFF" 1 "ON" ;
 VAL_ 2316869632 driver_door 0 "OFF" 1 "OPEN" ;
 VAL_ 2316869632 ac_compressor 0 "OFF" 1 "ON" ;
-VAL_ 2316869632 ac_compressor_inv 0 "UKWN" 1 "ON" 3 "OFF";
+VAL_ 2316869633 ac_compressor_inv 0 "UKWN" 1 "ON" 3 "OFF";
 VAL_ 2316869632 city_drive 0 "OFF" 1 "ON" ;
 VAL_ 2316869632 windshield_heater 0 "OFF" 1 "ON" ;
 VAL_ 2316869632 parking_brake 0 "OFF" 1 "ON" ;
@@ -116,5 +127,5 @@ VAL_ 2316869638 asr 0 "ON" 1 "OFF" ;
 VAL_ 2350686208 lights_on_2 0 "OFF" 1 "ON" ;
 VAL_ 2282790912 turn_indicator_left 0 "OFF" 1 "ON" ;
 VAL_ 2282790912 turn_indicator_right 0 "OFF" 1 "ON" ;
-VAL_ 2282790912 brake_pedal_sts 0 "NOT_PRESSED" 1 "PRESSED_LVL_1" 2 "PRESSED_LVL_2" 3 "PRESSED_LVL_3" ;
+VAL_ 2282790912 brake_pedal_sts 0 "NOT_PRESSED" 1 "PRESSED_LIGHT" 3 "PRESSED_HEAVY" ;
 VAL_ 2316935169 cruise_control 0 "OFF" 1 "ON" ;
